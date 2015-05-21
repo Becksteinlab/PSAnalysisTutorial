@@ -1,0 +1,28 @@
+<constraints
+  paircutoffscalefactor="0.95"
+  hbondenergycutoff="-1.0"
+  targheavyatomsonly="true"
+  dynamicconstraints="true"
+  delta="0.05"
+  targ="random"
+  dobacktrack="true"
+  commonconstrainthandling="breakable"
+  noncommonconstrainthandling="remove"
+/>
+<output
+  outrmsdfromlast="0.1"
+  outputrmsdfiles="true"
+/>
+
+<random seed="auto"/><!-- allowed output settings
+		outrmsdfromlast="0.1" 
+		outevery="10"
+		amberoutput="true"
+		outputrmsdfiles="true"	
+-->
+<!--	
+	<runfixedconstraints
+		nsteps="100"
+		domomentumpert="true"
+	/>
+-->

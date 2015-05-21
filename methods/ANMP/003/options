@@ -1,0 +1,33 @@
+Home
+About
+Tutorial
+Contact
+ANMPathway
+ANMPathway
+Find transition pathway between two protein conformations
+
+Initial PDB
+1ake_a_ca_core.pdb
+Chains for initial PDB
+A     1 to 214  
+Final PDB
+4ake_a_ca_core.pdb
+Chains for final PDB
+A     1 to 214  
+Parameter for Initial PDB
+Force constant   0.08
+Cut-off  18.0
+Energy offset    0.0
+Step size (on cusp)  0.8
+Step size (slide down)   0.04
+Parameter for Final PDB
+Force constant   0.08
+Cut-off  18.0
+Energy offset    0.0
+Step size (on cusp)  0.8
+Step size (slide down)   0.04
+Target RMSD  0.1
+Email
+ required
+Run ANMPathway
+© Roux Lab 2013

@@ -1,0 +1,10 @@
+Length of the simulation (typically 100-200, in arbitrary units) 200
+ 
+Time step for each snapshot along the path 1
+ 
+Cutoff value for the ENM (default is 10 Angstrom) 7.0
+ 
+Delta_E between the 2 states = E_start - E_final (in kcal/Mol) 0.0
+ 
+Elastic constant (left and right) in kcal/mol/Angstr**2 0.10 0.10
+A rule of thumb is that k*(cutoff)**2 # 10 kcal/Mol, within a factor of 2.

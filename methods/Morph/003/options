@@ -1,0 +1,24 @@
+1ake_a_core.pdb --> 4ake_a_core.pdb
+
+Run Parameters
+RMSstats.RMSD   7.13068345543
+chains1 A
+chains2 A
+description Closed to open AdK transition using 1ake_a_core.pdb and 4ake_a_core.pdb structures. Energy minimization off. Superimposition off.
+fh  
+file1   uploads/92844439/file1.pdb
+file2   uploads/92844439/file2.pdb
+filetype    pdb
+homogenizationmethod    none
+mid_    92844439
+minimize    None
+myid    92844439
+outframes   100
+private F
+protein_name    Adenylate Kinase
+steps   100
+submitted_by    Sean Seyler
+submitted_date  2014-05-20 19:24:26
+submitted_email slseyler@asu.edu
+superimpose None
+usecluster  None

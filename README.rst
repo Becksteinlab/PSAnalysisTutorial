@@ -6,11 +6,10 @@
 
 :Author:    Sean Seyler
 :Year:      2015
-:Licence:   GNU Public Licence, version 3 (or higher)
+:License:   GNU Public Licence, version 3 (or higher)
 :Copyright: © 2015 Sean Seyler
 :Citation:  SL Seyler, A Kumar, MF Thorpe, O Beckstein. ArXiv e-prints
             (2015). arXiv:1505.04807v1 [q-bio.QM]
-
 
 Summary
 =======
@@ -63,7 +62,7 @@ or
 
 The user can also try adjusting settings at the top of each file to change the:
 
-* path metric (default: ``discrete Fréchet``)
+* path metric (default: discrete Fréchet [``discrete_frechet``])
 * linkage algorithm for hierarchical clustering (default: ``Ward``)
 * name and location of the plot (default: ``df_ward_psa-[short/full].pdf``)
 
@@ -105,6 +104,6 @@ References
 
 .. [Seyler2015] S.L. Seyler, A. Kumar, M.F. Thorpe, and O. Beckstein, Path
    Similarity Analysis: a Method for Quantifying Macromolecular Pathways.
-   `arXiv:1505.04807v1`_ [q-bio.QM], 2015.
+   `arXiv:1505.04807v1`_ [q-bio.QM], 2015
 
 .. _`arXiv:1505.04807v1`: http://xxx.tau.ac.il/abs/1505.04807v1

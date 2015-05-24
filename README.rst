@@ -4,12 +4,18 @@
  Path Similarity Analysis Tutorial
 ===================================
 
+|zenodo|
+
 :Author:    Sean Seyler
 :Year:      2015
 :License:   GNU Public Licence, version 3 (or higher)
 :Copyright: © 2015 Sean Seyler
 :Citation:  SL Seyler, A Kumar, MF Thorpe, O Beckstein. ArXiv e-prints
             (2015). arXiv:1505.04807v1 [q-bio.QM]
+            
+.. |zenodo| image:: https://zenodo.org/badge/13219/Becksteinlab/PSAnalysisTutorial.svg
+    :alt: doi: 10.5281/zenodo.17902
+    :target: http://dx.doi.org/10.5281/zenodo.17902
 
 Summary
 =======

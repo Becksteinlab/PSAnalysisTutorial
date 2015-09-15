@@ -93,7 +93,7 @@ Some other techniques and analyses using PSA are described in [Seyler2015]_.
 Dependencies
 ============
 
-* MDAnalysis: 0.8.0 or higher
+* MDAnalysis: 0.10.0 or higher
 * pandas: 0.16.0 or higher
 * seaborn: 0.6.0 or higher
 

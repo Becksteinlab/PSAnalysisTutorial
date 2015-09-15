@@ -37,7 +37,7 @@ hierarchical clustering of the distance matrix is also written to
 
 from MDAnalysis import Universe
 from MDAnalysis.analysis.psa import PSA
-from psa_identifier import PSAIdentifier
+from pair_id import PairID
 
 if __name__ == '__main__':
 
@@ -83,17 +83,17 @@ if __name__ == '__main__':
     psa_hpa.generate_paths()
 
     print("Performing full Hausdorff pairs analysis for all pairs of paths...")
-    psa_hpa.run_hausdorff_pairs_analysis(neighbors=True, hausdorff_pairs=True)
+    psa_hpa.run_pairs_analysis(neighbors=True, hausdorff_pairs=True)
 
     #------------------------------------------------
     # Generate nearest neighbor distance plots
     #------------------------------------------------
 
     # Add three runs per method, except for LinInt (only has one)
-    psa_id = PSAIdentifier()
+    identifier = PairID()
     for name in method_names:
         run_ids = [1] if 'LinInt' in name else [1,2,3]
-        psa_id.add_sim(name, run_ids)
+        identifier.add_sim(name, run_ids)
 
     # Get the PSA ID:
     #    The comparison between a pair of simulations is assigned a unique PSA
@@ -101,14 +101,16 @@ if __name__ == '__main__':
     #    comparison between a pair of simulations can be identified by
     #    (distance) matrix indices. The PSA ID is the index in the corresponding
     #    distance vector of a given pair of simulations.
-    sim1, sim2, sim3 = 'DIMS 1', 'DIMS 2', 'rTMD-F 3'
-    ID1 = psa_id.get_psa_id(sim1, sim2)
-    ID2 = psa_id.get_psa_id(sim2, sim3)
+    s1, s2, s3 = 'DIMS 1', 'DIMS 2', 'rTMD-F 3'
+    pid1 = identifier.get_pair_id(s1, s2)
+    pid2 = identifier.get_pair_id(s2, s3)
 
     print("Plotting nearest neighbors as a function of normalized progress (by" \
         + " frame for:")
-    print("    1. comparison {:d}, {} to {}...".format(ID1, sim1, sim2))
-    psa_hpa.plot_nearest_neighbors(filename='nn_dims1_dims2.pdf', idx=ID1)
+    print("    1. comparison {:d}, {} to {}...".format(pid1, s1, s2))
+    psa_hpa.plot_nearest_neighbors(filename='nn_dims1_dims2.pdf', idx=pid1,     \
+                                   labels=(s1, s2))
 
-    print("    2. comparison {:d}, {} to {}...".format(ID2, sim2, sim3))
-    psa_hpa.plot_nearest_neighbors(filename='nn_dims2_tmds3.pdf', idx=ID2)
+    print("    2. comparison {:d}, {} to {}...".format(pid2, s2, s3))
+    psa_hpa.plot_nearest_neighbors(filename='nn_dims2_tmds3.pdf', idx=pid2,     \
+                                   labels=(s2, s3))

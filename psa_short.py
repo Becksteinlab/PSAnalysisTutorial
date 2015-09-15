@@ -35,15 +35,6 @@ hierarchical clustering of the distance matrix is also written to
 
 """
 
-###########################
-# Adjustable user settings
-###########################
-metric = 'discrete_frechet' # 'hausdorff'
-linkage = 'ward' # 'single' 'complete' 'weighted' 'average'
-plotname = 'df_ward_psa-short.pdf'
-
-
-import numpy
 from MDAnalysis import Universe
 from MDAnalysis.analysis.psa import PSA
 
@@ -51,8 +42,9 @@ if __name__ == '__main__':
 
     print("Building collection of simulations...")
     # List of method names (same as directory names)
-    method_names = ['DIMS', 'FRODA', 'MAP', 'iENM', 'MENM-SP', 'MENM-SD',       \
-                    'MDdMD', 'GOdMD', 'Morph', 'ANMP', 'LinInt']
+    method_names = ['DIMS', 'FRODA', 'GOdMD', 'MDdMD', 'rTMD-F', 'rTMD-S',      \
+                    'ANMP', 'iENM', 'MAP', 'MENM-SD', 'MENM-SP',                \
+                    'Morph', 'LinInt']
     labels = [] # Heat map labels
     simulations = [] # List of simulation topology/trajectory filename pairs
     universes = [] # List of MDAnalysis Universes representing simulations
@@ -62,8 +54,8 @@ if __name__ == '__main__':
     # list.
     for method in method_names:
         # Note: DIMS uses the PSF topology format
-        topname = 'top.psf' if method is 'DIMS' else 'top.pdb'
-        pathname = 'fitted_path.dcd'
+        topname = 'top.psf' if 'DIMS' in method or 'TMD' in method else 'top.pdb'
+        pathname = 'fitted_psa.dcd'
         method_dir = 'methods/{}'.format(method)
         if method is not 'LinInt':
             for run in xrange(1, 4): # 3 runs per method
@@ -90,8 +82,22 @@ if __name__ == '__main__':
     print("Generating Path objects from trajectories...")
     psa_short.generate_paths()
 
-    print("Calculating (discrete) Fréchet distance matrix...")
-    psa_short.run(metric=metric)
+    print("Calculating Hausdorff distance matrix...")
+    psa_short.run(metric='hausdorff')
 
     print("Plotting heat map-dendrogram for hierarchical (Ward) clustering...")
-    psa_short.plot(filename=plotname, linkage=linkage);
+    psa_short.plot(filename='dh_ward_psa-short.pdf', linkage='ward');
+
+    print("Plotting annotated heat map for hierarchical (Ward) clustering...")
+    psa_short.plot_annotated_heatmap(filename='dh_ward_psa-short_annot.pdf',    \
+                                     linkage='ward');
+
+    print("Calculating (discrete) Fréchet distance matrix...")
+    psa_short.run(metric='discrete_frechet')
+
+    print("Plotting heat map-dendrogram for hierarchical (Ward) clustering...")
+    psa_short.plot(filename='df_ward_psa-short.pdf', linkage='ward');
+
+    print("Plotting annotated heat map for hierarchical (Ward) clustering...")
+    psa_short.plot_annotated_heatmap(filename='df_ward_psa-short_annot.pdf',    \
+                                     linkage='ward');

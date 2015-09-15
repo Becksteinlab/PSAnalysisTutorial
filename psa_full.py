@@ -35,15 +35,6 @@ hierarchical clustering of the distance matrix is also written to
 
 """
 
-###########################
-# Adjustable user settings
-###########################
-metric = 'discrete_frechet' # 'hausdorff'
-linkage = 'ward' # 'single' 'complete' 'weighted' 'average'
-plotname = 'df_ward_psa-full.pdf'
-
-
-import numpy
 from MDAnalysis import Universe
 from MDAnalysis.analysis.align import rotation_matrix
 from MDAnalysis.analysis.psa import PSA
@@ -54,17 +45,17 @@ if __name__ == '__main__':
     # Read in closed/open AdK structures; work with C-alphas only
     u_closed = Universe('structs/adk1AKE.pdb')
     u_open = Universe('structs/adk4AKE.pdb')
-    ca_closed = u_closed.selectAtoms('name CA')
-    ca_open = u_open.selectAtoms('name CA')
+    ca_closed = u_closed.select_atoms('name CA')
+    ca_open = u_open.select_atoms('name CA')
 
     # Move centers-of-mass of C-alphas of each structure's CORE domain to origin
     adkCORE_resids = "(resid 1:29 or resid 60:121 or resid 160:214)"
-    u_closed.atoms.translate(-ca_closed.selectAtoms(adkCORE_resids).centerOfMass())
-    u_open.atoms.translate(-ca_open.selectAtoms(adkCORE_resids).centerOfMass())
+    u_closed.atoms.translate(-ca_closed.select_atoms(adkCORE_resids).center_of_mass())
+    u_open.atoms.translate(-ca_open.select_atoms(adkCORE_resids).center_of_mass())
 
     # Get C-alpha CORE coordinates for each structure
-    closed_ca_core_coords = ca_closed.selectAtoms(adkCORE_resids).positions
-    open_ca_core_coords = ca_open.selectAtoms(adkCORE_resids).positions
+    closed_ca_core_coords = ca_closed.select_atoms(adkCORE_resids).positions
+    open_ca_core_coords = ca_open.select_atoms(adkCORE_resids).positions
 
     # Compute rotation matrix, R, that minimizes rmsd between the C-alpha COREs
     R, rmsd_value = rotation_matrix(open_ca_core_coords, closed_ca_core_coords)
@@ -75,18 +66,19 @@ if __name__ == '__main__':
 
     # Generate reference structure coordinates: take average positions of
     # C-alpha COREs of open and closed structures (after C-alpha CORE alignment)
-    reference_coordinates = 0.5*(ca_closed.selectAtoms(adkCORE_resids).positions
-        + ca_open.selectAtoms(adkCORE_resids).positions)
+    reference_coordinates = 0.5*(ca_closed.select_atoms(adkCORE_resids).positions
+        + ca_open.select_atoms(adkCORE_resids).positions)
 
     # Generate Universe for reference structure with above reference coordinates
     u_ref = Universe('structs/adk1AKE.pdb')
-    u_ref.atoms.translate(-u_ref.selectAtoms(adkCORE_resids).CA.centerOfMass())
-    u_ref.selectAtoms(adkCORE_resids).CA.set_positions(reference_coordinates)
+    u_ref.atoms.translate(-u_ref.select_atoms(adkCORE_resids).CA.center_of_mass())
+    u_ref.select_atoms(adkCORE_resids).CA.set_positions(reference_coordinates)
 
     print("Building collection of simulations...")
     # List of method names (same as directory names)
-    method_names = ['DIMS', 'FRODA', 'MAP', 'iENM', 'MENM-SP', 'MENM-SD',       \
-                    'MDdMD', 'GOdMD', 'Morph', 'ANMP', 'LinInt']
+    method_names = ['DIMS', 'FRODA', 'GOdMD', 'MDdMD', 'rTMD-F', 'rTMD-S',      \
+                    'ANMP', 'iENM', 'MAP', 'MENM-SD', 'MENM-SP',                \
+                    'Morph', 'LinInt']
     labels = [] # Heat map labels
     simulations = [] # List of simulation topology/trajectory filename pairs
     universes = [] # List of MDAnalysis Universes representing simulations
@@ -96,7 +88,7 @@ if __name__ == '__main__':
     # list.
     for method in method_names:
         # Note: DIMS uses the PSF topology format
-        topname = 'top.psf' if method is 'DIMS' else 'top.pdb'
+        topname = 'top.psf' if 'DIMS' in method or 'TMD' in method else 'top.pdb'
         pathname = 'path.dcd'
         method_dir = 'methods/{}'.format(method)
         if method is not 'LinInt':
@@ -126,8 +118,22 @@ if __name__ == '__main__':
     print("Generating Path objects from aligned trajectories...")
     psa_full.generate_paths(align=True, store=True)
 
-    print("Calculating distance matrix...")
-    psa_full.run(metric=metric)
+    print("Calculating Hausdorff distance matrix...")
+    psa_full.run(metric='hausdorff')
 
-    print("Plotting heat map-dendrogram for hierarchical clustering...")
-    psa_full.plot(filename=plotname, linkage=linkage);
+    print("Plotting heat map-dendrogram for hierarchical (Ward) clustering...")
+    psa_full.plot(filename='dh_ward_psa-full.pdf', linkage='ward');
+
+    print("Plotting annotated heat map for hierarchical (Ward) clustering...")
+    psa_full.plot_annotated_heatmap(filename='dh_ward_psa-full_annot.pdf',      \
+                                     linkage='ward');
+
+    print("Calculating (discrete) Fréchet distance matrix...")
+    psa_full.run(metric='discrete_frechet')
+
+    print("Plotting heat map-dendrogram for hierarchical (Ward) clustering...")
+    psa_full.plot(filename='df_ward_psa-full.pdf', linkage='ward');
+
+    print("Plotting annotated heat map for hierarchical (Ward) clustering...")
+    psa_full.plot_annotated_heatmap(filename='df_ward_psa-full_annot.pdf',      \
+                                     linkage='ward');

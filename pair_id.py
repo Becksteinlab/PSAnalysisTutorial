@@ -18,7 +18,7 @@ class PairID(object):
     name of the method and a list-like sequence of numbers corresponding the
     runs that were performed. Once all simulations are added, the data
     generated for a given pair of simulations can be accessed by first using
-    :meth:`PairID.get_psa_id` to get the comparison index and then
+    :meth:`PairID.get_pair_id` to get the comparison index and then
     using that index to extract the data in :class:`PSA` stored in distance
     vector form.
 
@@ -40,10 +40,10 @@ class PairID(object):
     among a total of four methods with three runs each (consecutively labeled
     '1','2','3'):
     >>> method_names = ['DIMS','FRODA','rTMD-F','rTMD-S']
-    >>> psa_id = PairID()
+    >>> identifier = PairID()
     >>> for name in method_names:
-    >>>     psa_id.add_sim(name, [1,2,3])
-    >>> ID = psa_id.get_psa_id('DIMS 2', 'rTMD-F 3')
+    >>>     identifier.add_sim(name, [1,2,3])
+    >>> ID = identifier.get_pair_id('DIMS 2', 'rTMD-F 3')
 
     >>> # Assume the simulations have been added to PSA as MDAnalysis Universes
     >>> # in the above order (DIMS 1, ..., DIMS 3, FRODA 1, ..., FRODA 3, ...,
@@ -88,7 +88,7 @@ class PairID(object):
 
 
     def dvectorform(self, i, j):
-        """Convert simulation IDs to the PSA ID.
+        """Convert simulation IDs to a Pair ID.
 
         Simulations added to :class:`PairID` are indexed by a unique
         integer ID. Two integer IDs correspond to a location in the matrix
@@ -104,7 +104,7 @@ class PairID(object):
              int, column index
 
         :Returns:
-          int, the PSA ID of the pair of simulations *i* and *j*
+          int, the Pair ID of the pair of simulations *i* and *j*
         """
         if i == j:
             raise ValueError("Indices cannot have the same value.")
@@ -115,7 +115,7 @@ class PairID(object):
 
 
     def get_pair_id(self, sim1, sim2, vectorform=True):
-        """Get the PSA ID of a pair of simulations.
+        """Get the Pair ID of a pair of simulations.
 
         Note: the names of simulations are assumed to take the following form:
         '<Name> <Run ID>', e.g., 'DIMS 1' or 'rTMD-S 2'.
@@ -127,7 +127,7 @@ class PairID(object):
              string, name of first simulation in comparison
 
         :Returns:
-          int, the PSA ID of the comparison between *sim1* and *sim2*
+          int, the Pair ID of the comparison between *sim1* and *sim2*
         """
         i, j = self.get_sim_id(sim1), self.get_sim_id(sim2)
         try:

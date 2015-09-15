@@ -6,12 +6,11 @@
 
 |zenodo|
 
-:Version:   1.1
 :Author:    Sean Seyler
 :Year:      2015
 :License:   GNU Public Licence, version 3 (or higher)
 :Copyright: © 2015 Sean Seyler
-:Citation:  SL Seyler, A Kumar, MF Thorpe, O Beckstein. 
+:Citation:  SL Seyler, A Kumar, MF Thorpe, O Beckstein.
             *Path Similarity Analysis: a Method for Quantifying Macromolecular Pathways.* 
             ArXiv e-prints (2015). `arXiv:1505.04807`_ [q-bio.QM]
 

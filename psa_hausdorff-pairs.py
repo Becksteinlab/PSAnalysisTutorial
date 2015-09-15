@@ -101,7 +101,7 @@ if __name__ == '__main__':
     #    comparison between a pair of simulations can be identified by
     #    (distance) matrix indices. The PSA ID is the index in the corresponding
     #    distance vector of a given pair of simulations.
-    sim1, sim2, sim3 = 'DIMS 1', 'DIMS 2', 'rTMD-S 3'
+    sim1, sim2, sim3 = 'DIMS 1', 'DIMS 2', 'rTMD-F 3'
     ID1 = psa_id.get_psa_id(sim1, sim2)
     ID2 = psa_id.get_psa_id(sim2, sim3)
 

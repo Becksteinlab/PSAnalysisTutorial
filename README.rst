@@ -16,8 +16,7 @@
             (also: `arXiv:1505.04807`_ [q-bio.QM])
 
 .. |zenodo| image:: https://zenodo.org/badge/13219/Becksteinlab/PSAnalysisTutorial.svg
-    :alt: doi: 10.5281/zenodo.17902
-    :target: http://dx.doi.org/10.5281/zenodo.17902
+   :target: https://zenodo.org/badge/latestdoi/13219/Becksteinlab/PSAnalysisTutorial
 
 Summary
 =======

@@ -36,7 +36,7 @@ hierarchical clustering of the distance matrix is also written to
 """
 
 from MDAnalysis import Universe
-from MDAnalysis.analysis.psa import PSA
+from MDAnalysis.analysis.psa import PSAnalysis
 from pair_id import PairID
 
 if __name__ == '__main__':
@@ -77,7 +77,7 @@ if __name__ == '__main__':
         universes.append(Universe(*sim))
 
     print("Initializing Path Similarity Analysis...")
-    psa_hpa = PSA(universes, path_select='name CA', labels=labels)
+    psa_hpa = PSAnalysis(universes, path_select='name CA', labels=labels)
 
     print("Generating Path objects from trajectories...")
     psa_hpa.generate_paths()
@@ -95,11 +95,11 @@ if __name__ == '__main__':
         run_ids = [1] if 'LinInt' in name else [1,2,3]
         identifier.add_sim(name, run_ids)
 
-    # Get the PSA ID:
-    #    The comparison between a pair of simulations is assigned a unique PSA
-    #    ID. Given the order in which simulations are added to PSA, the
+    # Get the PairID:
+    #    The comparison between a pair of simulations is assigned a unique
+    #    PairID. Given the order in which simulations are added to PSA, the
     #    comparison between a pair of simulations can be identified by
-    #    (distance) matrix indices. The PSA ID is the index in the corresponding
+    #    (distance) matrix indices. The PairID is the index in the corresponding
     #    distance vector of a given pair of simulations.
     s1, s2, s3 = 'DIMS 1', 'DIMS 2', 'rTMD-F 3'
     pid1 = identifier.get_pair_id(s1, s2)

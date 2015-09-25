@@ -37,7 +37,7 @@ hierarchical clustering of the distance matrix is also written to
 
 from MDAnalysis import Universe
 from MDAnalysis.analysis.align import rotation_matrix
-from MDAnalysis.analysis.psa import PSA
+from MDAnalysis.analysis.psa import PSAnalysis
 
 if __name__ == '__main__':
 
@@ -112,7 +112,7 @@ if __name__ == '__main__':
 
     print("Initializing Path Similarity Analysis...")
     ref_selection = "name CA and " + adkCORE_resids
-    psa_full = PSA(universes, reference=u_ref, ref_select=ref_selection,
+    psa_full = PSAnalysis(universes, reference=u_ref, ref_select=ref_selection,
                         path_select="name CA", labels=labels)
 
     print("Generating Path objects from aligned trajectories...")

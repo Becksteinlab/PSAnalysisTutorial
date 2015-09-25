@@ -158,8 +158,10 @@ References
 
 .. _`10.1080/08927022.2014.919497`: http://dx.doi.org/10.1080/08927022.2014.919497
 
-.. [Seyler2015] S.L. Seyler, A. Kumar, M.F. Thorpe, and O. Beckstein, Path
+.. [Seyler2015] Seyler SL, Kumar A, Thorpe MF, Beckstein O (2015) Path
    Similarity Analysis: a Method for Quantifying Macromolecular Pathways.
-   `arXiv:1505.04807`_ [q-bio.QM], 2015
+   PLoS Comput Biol. doi: `10.1371/journal.pcbi.1004568`_ (also:
+   `arXiv:1505.04807`_ [q-bio.QM])
 
+.. _`10.1371/journal.pcbi.1004568`: http://dx.doi.org/10.1371/journal.pcbi.1004568
 .. _`arXiv:1505.04807`: http://arxiv.org/abs/1505.04807

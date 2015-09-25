@@ -61,12 +61,16 @@ explore how paths differ from each other as a function of progress, as well as
 examine the pair of structures for each pair of paths that are responsible for
 the Hausdorff distance.
 
-Analyses are performed with the ``psa_short.py``, ``psa_full.py``, or
-``psa_hausdorff-pairs.py`` scripts, which automatically read trajectories from
-the ``methods`` directory into a PSA object, perform trajectory alignment (in
-the case of ``psa_full.py``), generate discrete Hausdorff and Fréchet distance
-matrices, and produce heat map-dendrograms and annotated heat maps representing
-the distance matrix after Ward hierarchical clustering.
+Analyses are performed by executing the ``psa_short.py``, ``psa_full.py``, or
+``psa_hausdorff-pairs.py`` python scripts, which automatically read trajectories
+from the ``methods`` directory into a PSA object and perform trajectory alignment
+(in the case of ``psa_full.py``). ``psa_short.py`` and ``psa_full.py``generate
+discrete Hausdorff and Fréchet distance matrices, and produce heat
+map-dendrograms and annotated heat maps representing the distance matrices after
+Ward hierarchical clustering. In ``psa_hausdorff-pairs.py``, a Hausdorff
+pairs (nearest neighbor) analysis is performed, with two plots showing the
+nearest neighbor (structures) as a function of (normalized) frame progress for
+two pairs of paths (DIMS vs DIMS and DIMS vs rTMD-S).
 
 Also provided are Jupyter notebooks (with the ``.ipynb`` extension) that give
 users the option to perform the same analyses as performed by the scripts in an

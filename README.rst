@@ -10,9 +10,10 @@
 :Year:      2015
 :License:   GNU Public Licence, version 3 (or higher)
 :Copyright: © 2015 Sean Seyler
-:Citation:  SL Seyler, A Kumar, MF Thorpe, O Beckstein.
-            *Path Similarity Analysis: a Method for Quantifying Macromolecular Pathways.* 
-            ArXiv e-prints (2015). `arXiv:1505.04807`_ [q-bio.QM]
+:Citation:  Seyler SL, Kumar A, Thorpe MF, Beckstein O (2015)
+            Path Similarity Analysis: a Method for Quantifying Macromolecular Pathways.
+            PLoS Comput Biol. doi: `10.1371/journal.pcbi.1004568`_
+            (also: `arXiv:1505.04807`_ [q-bio.QM])
 
 .. |zenodo| image:: https://zenodo.org/badge/13219/Becksteinlab/PSAnalysisTutorial.svg
     :alt: doi: 10.5281/zenodo.17902

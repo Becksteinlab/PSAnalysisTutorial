@@ -36,7 +36,7 @@ hierarchical clustering of the distance matrix is also written to
 """
 
 from MDAnalysis import Universe
-from MDAnalysis.analysis.psa import PSA
+from MDAnalysis.analysis.psa import PSAnalysis
 
 if __name__ == '__main__':
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
         universes.append(Universe(*sim))
 
     print("Initializing Path Similarity Analysis...")
-    psa_short = PSA(universes, path_select='name CA', labels=labels)
+    psa_short = PSAnalysis(universes, path_select='name CA', labels=labels)
 
     print("Generating Path objects from trajectories...")
     psa_short.generate_paths()

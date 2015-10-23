@@ -60,10 +60,13 @@ explore how paths differ from each other as a function of progress, as well as
 examine the pair of structures for each pair of paths that are responsible for
 the Hausdorff distance.
 
+Scripts
+-------
+
 Analyses are performed by executing the ``psa_short.py``, ``psa_full.py``, or
 ``psa_hausdorff-pairs.py`` python scripts, which automatically read trajectories
 from the ``methods`` directory into a PSA object and perform trajectory alignment
-(in the case of ``psa_full.py``). ``psa_short.py`` and ``psa_full.py``generate
+(in the case of ``psa_full.py``). ``psa_short.py`` and ``psa_full.py`` generate
 discrete Hausdorff and Fréchet distance matrices, and produce heat
 map-dendrograms and annotated heat maps representing the distance matrices after
 Ward hierarchical clustering. In ``psa_hausdorff-pairs.py``, a Hausdorff

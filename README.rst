@@ -10,10 +10,9 @@
 :Year:      2015
 :License:   GNU Public Licence, version 3 (or higher)
 :Copyright: © 2015 Sean Seyler
-:Citation:  Seyler SL, Kumar A, Thorpe MF, Beckstein O (2015)
-            Path Similarity Analysis: a Method for Quantifying Macromolecular Pathways.
-            PLoS Comput Biol. doi: `10.1371/journal.pcbi.1004568`_
-            (also: `arXiv:1505.04807`_ [q-bio.QM])
+:Citation:  Seyler SL, Kumar A, Thorpe MF, Beckstein O (2015).
+            Path Similarity Analysis: A Method for Quantifying Macromolecular Pathways.
+            *PLoS Comput Biol* **11** (10): e1004568. doi: `10.1371/journal.pcbi.1004568`_
 
 .. |zenodo| image:: https://zenodo.org/badge/13219/Becksteinlab/PSAnalysisTutorial.svg
    :target: https://zenodo.org/badge/latestdoi/13219/Becksteinlab/PSAnalysisTutorial
@@ -147,21 +146,20 @@ References
 
 .. [Michaud-Agrawal2011] N. Michaud-Agrawal, E. J. Denning,
    T. B. Woolf, and O. Beckstein. MDAnalysis: A toolkit for the
-   analysis of molecular dynamics simulations. J Comp Chem,
-   32:2319-2327, 2011. doi:`10.1002/jcc.21787`_. http://www.mdanalysis.org
+   analysis of molecular dynamics simulations. *J Comp Chem*
+   **32**:2319-2327, 2011. doi:`10.1002/jcc.21787`_. http://www.mdanalysis.org
 
 .. _`10.1002/jcc.21787`: http://doi.org/10.1002/jcc.21787
 
 .. [Seyler2014] S.L. Seyler and O. Beckstein, Sampling large conformational
-   transitions: adenylate kinase as a testing ground. Mol Simul 40:855–877,
+   transitions: adenylate kinase as a testing ground. *Mol Simul* **40**:855–877,
    2014. doi:`10.1080/08927022.2014.919497`_
 
 .. _`10.1080/08927022.2014.919497`: http://dx.doi.org/10.1080/08927022.2014.919497
 
-.. [Seyler2015] Seyler SL, Kumar A, Thorpe MF, Beckstein O (2015) Path
-   Similarity Analysis: a Method for Quantifying Macromolecular Pathways.
-   PLoS Comput Biol. doi: `10.1371/journal.pcbi.1004568`_ (also:
-   `arXiv:1505.04807`_ [q-bio.QM])
+.. [Seyler2015] Seyler SL, Kumar A, Thorpe MF, Beckstein O.
+   Path Similarity Analysis: A Method for Quantifying Macromolecular Pathways.
+   *PLoS Comput Biol* **11** (10): e1004568, 2015. doi: `10.1371/journal.pcbi.1004568`_
 
 .. _`10.1371/journal.pcbi.1004568`: http://dx.doi.org/10.1371/journal.pcbi.1004568
 .. _`arXiv:1505.04807`: http://arxiv.org/abs/1505.04807
